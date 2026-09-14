@@ -190,6 +190,12 @@
       object-fit: cover;
       border-radius: 10px;
       border: 1px solid rgba(56, 35, 18, 0.1);
+      cursor: pointer; /* Indica que la foto es cliqueable */
+      transition: opacity 0.2s ease;
+    }
+
+    .tarjeta img:hover {
+      opacity: 0.9;
     }
 
     .nombre-producto {
@@ -245,6 +251,41 @@
       transition: transform 0.2s ease;
     }
 
+    /* ESTILOS DEL MODAL PARA AGRANDAR IMAGEN */
+    .modal-imagen {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(56, 35, 18, 0.9); /* Fondo café semitransparente */
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .modal-imagen img {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 12px;
+      border: 3px solid var(--cream-light);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      object-fit: contain;
+    }
+
+    .cerrar-modal {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: var(--cream-light);
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     footer {
       text-align: center;
       padding: 30px 20px;
@@ -295,7 +336,7 @@
 
   <div class="contenedor">
 
-   <!-- COMBOS / DESTACADOS -->
+    <!-- COMBOS / DESTACADOS -->
     <section id="destacados">
       <h2 class="titulo-seccion">combos & off</h2>
       <div class="grid-productos">
@@ -544,9 +585,34 @@
 
   <a href="#top" class="btn-flotante-inicio">↑ inicio</a>
 
+  <!-- VENTANA MODAL PARA AGRANDAR IMAGEN -->
+  <div id="modal-visor" class="modal-imagen" onclick="cerrarImagen()">
+    <span class="cerrar-modal">&times;</span>
+    <img id="img-ampliada" src="" alt="Imagen ampliada">
+  </div>
+
   <footer>
     <p>wunbi • instagram: <a href="https://instagram.com/wunbi.ba" target="_blank">@wunbi.ba</a></p>
   </footer>
+
+  <!-- SCRIPT JAVASCRIPT PARA EL FUNCIONAMIENTO DEL VISOR -->
+  <script>
+    const modal = document.getElementById('modal-visor');
+    const imgAmpliada = document.getElementById('img-ampliada');
+
+    // Escucha el click en todas las imágenes dentro de las tarjetas
+    document.querySelectorAll('.tarjeta img').forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        imgAmpliada.src = img.src;
+      });
+    });
+
+    // Función para cerrar la imagen
+    function cerrarImagen() {
+      modal.style.display = 'none';
+    }
+  </script>
 
 </body>
 </html>
