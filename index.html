@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wunbi | @wunbi.ba</title>
+  
+  <!-- Fuente Limelight importada desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section {
+      scroll-margin-top: 20px;
+    }
+
+    :root {
+      --brown-dark: #382312;   
+      --cream-light: #E2D4C1;  
+      --bg-cream: #F5EFE6;     
+      --white: #FFFFFF;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--brown-dark);
+      margin: 0;
+      padding: 0;
+    }
+
+    .marquee-container {
+      background-color: var(--brown-dark);
+      color: var(--cream-light);
+      padding: 6px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 0.75em;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 20s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    header {
+      background-color: var(--bg-cream);
+      padding: 15px 10px 12px 10px;
+      text-align: center;
+      position: static;
+      border-bottom: 2px solid var(--brown-dark);
+    }
+
+    .brand-title {
+      font-family: 'Limelight', cursive;
+      font-size: 2.8em;
+      font-weight: 400;
+      margin: 0;
+      line-height: 0.9;
+      color: var(--brown-dark);
+      text-transform: lowercase;
+      letter-spacing: -1px;
+    }
+
+    .brand-tag {
+      display: inline-block;
+      background-color: var(--cream-light);
+      color: var(--brown-dark);
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.7em;
+      font-weight: 800;
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--brown-dark);
+      font-size: 0.75em;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1.5px solid var(--brown-dark);
+      background-color: transparent;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--brown-dark);
+      color: var(--cream-light);
+    }
+
+    .banner-hero {
+      max-width: 1000px;
+      margin: 15px auto 5px auto;
+      padding: 0 15px;
+    }
+
+    .banner-card {
+      background-color: var(--brown-dark);
+      color: var(--cream-light);
+      border-radius: 16px;
+      padding: 20px 15px;
+      text-align: center;
+    }
+
+    .banner-card h2 {
+      font-family: 'Limelight', cursive;
+      font-size: 1.8em;
+      margin: 0 0 4px 0;
+      font-weight: 400;
+      text-transform: lowercase;
+    }
+
+    .banner-card p {
+      font-size: 0.85em;
+      opacity: 0.9;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .contenedor {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 15px 40px 15px;
+    }
+
+    .titulo-seccion {
+      font-family: 'Limelight', cursive;
+      font-size: 1.8em;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: var(--brown-dark);
+      text-transform: lowercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .titulo-seccion::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--brown-dark);
+    }
+
+    .grid-productos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+    }
+
+    .tarjeta {
+      background-color: var(--white);
+      border: 2px solid var(--brown-dark);
+      border-radius: 16px;
+      width: 260px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 4px 4px 0px var(--brown-dark);
+      transition: transform 0.2s ease;
+    }
+
+    .tarjeta img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 35, 18, 0.1);
+    }
+
+    .nombre-producto {
+      font-family: 'Limelight', cursive;
+      font-size: 1.2em;
+      margin: 10px 0 2px 0;
+      color: var(--brown-dark);
+      text-transform: lowercase;
+    }
+
+    .precio {
+      font-size: 1em;
+      font-weight: 800;
+      color: var(--brown-dark);
+      margin: 2px 0 12px 0;
+    }
+
+    .btn-ws {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: var(--brown-dark);
+      color: var(--cream-light);
+      text-decoration: none;
+      padding: 10px 0;
+      border-radius: 30px;
+      font-size: 0.8em;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      border: 2px solid var(--brown-dark);
+      transition: all 0.2s ease;
+    }
+
+    .btn-ws:hover {
+      background-color: var(--cream-light);
+      color: var(--brown-dark);
+    }
+
+    .btn-flotante-inicio {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--brown-dark);
+      color: var(--cream-light);
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 30px;
+      font-size: 0.8em;
+      font-weight: 800;
+      border: 2px solid var(--cream-light);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: transform 0.2s ease;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: var(--brown-dark);
+      color: var(--cream-light);
+      margin-top: 50px;
+      font-weight: 700;
+    }
+
+    footer a {
+      color: var(--cream-light);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body id="top">
+
+  <div class="marquee-container">
+    <div class="marquee-content">
+      ✦ ACCESORIOS & COMPLEMENTOS • ENVÍOS A TODO EL PAÍS • @WUNBI.BA • PEDÍ POR WHATSAPP •&nbsp;
+    </div>
+    <div class="marquee-content">
+      ✦ ACCESORIOS & COMPLEMENTOS • ENVÍOS A TODO EL PAÍS • @WUNBI.BA • PEDÍ POR WHATSAPP •&nbsp;
+    </div>
+  </div>
+
+  <header>
+    <h1 class="brand-title">wunbi</h1>
+    <div class="brand-tag">@wunbi.ba</div>
+    
+    <nav>
+      <a href="#destacados">combos / off</a>
+      <a href="#chokers">chokers</a>
+      <a href="#pulseras">pulseras</a>
+      <a href="#brazaletes">brazaletes</a>
+      <a href="#collares">collares</a>
+      <a href="#cinturones">cinturones</a>
+      <a href="#aritos">aritos</a>
+    </nav>
+  </header>
+
+  <div class="banner-hero">
+    <div class="banner-card">
+      <h2>nueva colección</h2>
+      <p>Elegí tus accesorios favoritos y coordinamos el envío por WhatsApp</p>
+    </div>
+  </div>
+
+  <div class="contenedor">
+
+    <!-- COMBOS / DESTACADOS -->
+    <section id="destacados">
+      <h2 class="titulo-seccion">combos & off</h2>
+      <div class="grid-productos">
+        <div class="tarjeta">
+          <img src="https://via.placeholder.com/260x220" alt="Combo Wunbi">
+          <div class="nombre-producto">combo wunbi duo</div>
+          <div class="precio">$12.500</div>
+          <a class="btn-ws" href="https://wa.me/54911666502734?text=Hola%20wunbi!%20Quiero%20el%20combo%20duo" target="_blank">Pedir por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHOKERS -->
+    <section id="chokers">
+      <h2 class="titulo-seccion">chokers</h2>
+      <div class="grid-productos">
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/CHOCKER BOHO.jpg" alt="Choker Boho">
+          <div class="nombre-producto">Choker Boho</div>
+          <div class="precio">$18.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20Choker%20Boho" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/CHOCKER DUO.jpg" alt="Choker duo">
+          <div class="nombre-producto">Choker Duo</div>
+          <div class="precio">$18.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20Choker%20duo" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/CHOCKER FADE.jpg" alt="Choker fade">
+          <div class="nombre-producto">Choker Fade</div>
+          <div class="precio">$18.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20Choker%20Fade" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/CHOCKER HEART.jpg" alt="Choker Heart">
+          <div class="nombre-producto">Choker Heart</div>
+          <div class="precio">$18.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20Choker%20Heart" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/CHOCKER SUMMER TRIP.jpg" alt="Choker summer trip">
+          <div class="nombre-producto">Choker Summer Trip</div>
+          <div class="precio">$18.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20Choker%20SummerTrip" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PULSERAS -->
+    <section id="pulseras">
+      <h2 class="titulo-seccion">pulseras acero</h2>
+      <div class="grid-productos">
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/PULSERA BOLIRAS ACQ.jpg" alt="Pulsera Bolitas Acero Quirurgico">
+          <div class="nombre-producto">Pulsera Bolitas Acero Quirurgico</div>
+          <div class="precio">$9.900</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20Pulsera%20Bolitas%20acq" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/PULSERA CHAPI ACQ.jpg" alt="Pulsera Chapi">
+          <div class="nombre-producto">Pulsera Chapi</div>
+          <div class="precio">$9.900</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20Pulsera%20chapi" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/PULSERA INLOVE ACQ.jpg" alt="Pulsera InLove Acero Quirurgico">
+          <div class="nombre-producto">Pulsera InLove Acero Quirurgico</div>
+          <div class="precio">$9.900</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20Pulsera%20InLove%20acq" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/PULSERA INLOVE DOR.jpg" alt="Pulsera InLove Acero Dorado">
+          <div class="nombre-producto">Pulsera InLove Acero Dorado</div>
+          <div class="precio">$9.900</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20Pulsera%20InLove%20dorado" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/PULSERA STAR DOR.jpg" alt="Pulsera Star Acero Dorado">
+          <div class="nombre-producto">Pulsera Star Acero Dorado</div>
+          <div class="precio">$9.900</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20Pulsera%20Star%20dorado" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BRAZALETES -->
+    <section id="brazaletes">
+      <h2 class="titulo-seccion">brazaletes</h2>
+      <div class="grid-productos">
+        
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/BRAZALETE MARRON.jpg" alt="Brazalete marron">
+          <div class="nombre-producto">Brazalete Marron</div>
+          <div class="precio">$13.500</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20Brazalete%20marron" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/BRAZALETE NEGRO.jpg" alt="Brazalete negro">
+          <div class="nombre-producto">Brazalete Negro</div>
+          <div class="precio">$13.500</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20Brazalete%20negro" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/BRAZALETE ROJO.jpg" alt="Brazalete rojo">
+          <div class="nombre-producto">Brazalete Rojo</div>
+          <div class="precio">$13.500</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20Brazalete%20rojo" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/BRAZALETE VERDE.jpg" alt="Brazalete verde">
+          <div class="nombre-producto">Brazalete Verde</div>
+          <div class="precio">$13.500</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20Brazalete%20verde" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COLLARES -->
+    <section id="collares">
+      <h2 class="titulo-seccion">collares</h2>
+      <div class="grid-productos">
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/COLLAR BOLITAS ACQ.jpg" alt="Collar Bolitas">
+          <div class="nombre-producto">Collar Bolitas - Acero Quirurgico</div>
+          <div class="precio">$12.500</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20bolitas%20acq" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/COLLAR BOLITAS DOR.jpg" alt="Collar Bolitas">
+          <div class="nombre-producto">Collar Bolitas - Acero Dorado</div>
+          <div class="precio">$12.500</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20bolitas%20dorado" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/COLLAR SNAKE DOR.jpg" alt="Collar Snake">
+          <div class="nombre-producto">Collar Snake - Acero Dorado</div>
+          <div class="precio">$12.500</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20snake%20dor" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/GAMUZA HORSE.jpg" alt="Gamuza horse">
+          <div class="nombre-producto">Collar Gamuza Horse</div>
+          <div class="precio">$15.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20gamuza%20horse" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/GAMUZA SOL.jpg" alt="Gamuza Sol">
+          <div class="nombre-producto">Collar Gamuza Sol</div>
+          <div class="precio">$15.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20gamuza%20Sol" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/GAMUZA SUNSET.jpg" alt="Gamuza SUNSET">
+          <div class="nombre-producto">Collar Gamuza Sunset</div>
+          <div class="precio">$15.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20gamuza%20Sunset" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/GAMUZA LONGSILVER.jpg" alt="Gamuza LONGSILVER">
+          <div class="nombre-producto">Collar Gamuza LongSilver</div>
+          <div class="precio">$15.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20gamuza%20LongSilver" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/GAMUZA LONGWHITE.jpg" alt="Gamuza LONGWHITE">
+          <div class="nombre-producto">Collar Gamuza LongWhite</div>
+          <div class="precio">$15.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20gamuza%20LongWhite" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/ROSARIO ACQ.jpg" alt="Rosario">
+          <div class="nombre-producto">Rosario San Benito Acero Quirurgico</div>
+          <div class="precio">$15.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20Rosario" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CINTURONES -->
+    <section id="cinturones">
+      <h2 class="titulo-seccion">cinturones</h2>
+      <div class="grid-productos">
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/CINTO SILVER.jpg" alt="cinto silver">
+          <div class="nombre-producto">Cinturon Silver</div>
+          <div class="precio">$25.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20cinturon%20Silver" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/CINTO SUN.jpg" alt="cinto sun">
+          <div class="nombre-producto">Cinturon Sun</div>
+          <div class="precio">$25.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20cinturon%20Sun" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/CINTO WILD.jpg" alt="cinto wild">
+          <div class="nombre-producto">Cinturon Wild</div>
+          <div class="precio">$25.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20collar%20cinturon%20Wild" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ARITOS -->
+    <section id="aritos">
+      <h2 class="titulo-seccion">aritos</h2>
+      <div class="grid-productos">
+
+        <div class="tarjeta">
+          <img src="imagenes/wunbi/ARITOS ACQ.jpg" alt="Aritos acq">
+          <div class="nombre-producto">Aritos Acero Quirurgico/Dorado</div>
+          <div class="precio">$8.000</div>
+          <a class="btn-ws" href="https://wa.me/54911XXXXXXXX?text=Hola%20wunbi!%20Quiero%20el%20aritos" target="_blank">Pedir por WhatsApp</a>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <a href="#top" class="btn-flotante-inicio">↑ inicio</a>
+
+  <footer>
+    <p>wunbi • instagram: <a href="https://instagram.com/wunbi.ba" target="_blank">@wunbi.ba</a></p>
+  </footer>
+
+</body>
+</html>
